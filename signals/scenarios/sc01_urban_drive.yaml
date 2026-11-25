@@ -1,0 +1,66 @@
+scenario_id: "SC-01"
+name: "Urban drive"
+description: "Ignition on -> gear D -> speed 0->50->0 km/h with stops. Proves UX restrictions engage/release."
+version: "1.0"
+duration_seconds: 45 # Scaled for fast POC execution (or 90s full)
+
+steps:
+  - t: 0.0
+    phase: "ignition"
+    signal: "Vehicle.LowVoltageSystemState"
+    value: "ON"
+    description: "Switch ignition on"
+
+  - t: 2.0
+    phase: "drive_prep"
+    signal: "Vehicle.Chassis.ParkingBrake.IsEngaged"
+    value: false
+    description: "Release parking brake"
+
+  - t: 4.0
+    phase: "gear_shift"
+    signal: "Vehicle.Powertrain.Transmission.SelectedGear"
+    value: "GEAR_DRIVE"
+    description: "Shift to Drive"
+
+  - t: 4.5
+    phase: "gear_engaged"
+    signal: "Vehicle.Powertrain.Transmission.CurrentGear"
+    value: "GEAR_DRIVE"
+    description: "Transmission engages Drive gear"
+
+  - t: 6.0
+    phase: "accelerating"
+    signal: "Vehicle.Speed"
+    value: 15.0 # km/h
+    description: "Accelerate to 15 km/h - UX restrictions engage"
+
+  - t: 12.0
+    phase: "cruising"
+    signal: "Vehicle.Speed"
+    value: 50.0 # km/h
+    description: "Cruising speed 50 km/h"
+
+  - t: 25.0
+    phase: "braking"
+    signal: "Vehicle.Speed"
+    value: 20.0 # km/h
+    description: "Brake down to 20 km/h"
+
+  - t: 32.0
+    phase: "stop"
+    signal: "Vehicle.Speed"
+    value: 0.0 # km/h
+    description: "Full stop at light - UX restrictions release"
+
+  - t: 40.0
+    phase: "park"
+    signal: "Vehicle.Powertrain.Transmission.SelectedGear"
+    value: "GEAR_PARK"
+    description: "Shift to Park"
+
+  - t: 42.0
+    phase: "park_brake"
+    signal: "Vehicle.Chassis.ParkingBrake.IsEngaged"
+    value: true
+    description: "Engage parking brake"

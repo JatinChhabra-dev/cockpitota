@@ -1,0 +1,39 @@
+scenario_id: "SC-05"
+name: "Low-battery park"
+description: "Gear P, SoC 20% -> OTA offered -> agent defers -> SoC rises to 35% -> update proceeds."
+version: "1.0"
+duration_seconds: 25
+
+steps:
+  - t: 0.0
+    phase: "parked"
+    signal: "Vehicle.Powertrain.Transmission.SelectedGear"
+    value: "GEAR_PARK"
+    description: "Vehicle parked"
+
+  - t: 1.0
+    phase: "low_battery"
+    signal: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed"
+    value: 20.0 # 20% (< 30% threshold)
+    description: "State of charge at 20% - OTA precondition NOT met"
+
+  - t: 5.0
+    phase: "ota_trigger"
+    action: "HAWKBIT_OFFER_UPDATE"
+    description: "hawkBit campaign offers release package to vehicle update agent"
+
+  - t: 8.0
+    phase: "verify_deferral"
+    assertion: "UPDATE_STATUS_DEFERRED"
+    description: "Agent reports DEFERRED due to insufficient battery (SoC < 30%)"
+
+  - t: 14.0
+    phase: "charging_boost"
+    signal: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed"
+    value: 35.0 # 35% (>= 30% threshold)
+    description: "Battery charged to 35% - OTA precondition satisfied"
+
+  - t: 20.0
+    phase: "verify_install"
+    assertion: "UPDATE_STATUS_PROCEEDING"
+    description: "Agent re-checks preconditions and proceeds with installation"

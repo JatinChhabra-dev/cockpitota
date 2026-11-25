@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aurelia Rear-View</string>
+    <string name="rearview_banner">REAR-VIEW CAMERA ACTIVE (STAND-IN)</string>
+    <string name="rearview_warning">Check surroundings before reversing · Driven by VHAL GEAR_SELECTION=REVERSE</string>
+</resources>

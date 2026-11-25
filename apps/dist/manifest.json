@@ -1,0 +1,33 @@
+﻿{
+    "generated_at":  "2026-11-23T09:12:57Z",
+    "artefacts":  [
+                      {
+                          "filename":  "aurelia-ev-v1.0.apk",
+                          "version_name":  "1.0.0",
+                          "version_code":  1,
+                          "size_bytes":  766359,
+                          "sha256":  "f4910d8d1893a1b40b445ba65afa8f0ef3290dbad65374f47f76084450e477bc"
+                      },
+                      {
+                          "filename":  "aurelia-ev-v1.1.apk",
+                          "version_name":  "1.1.0",
+                          "version_code":  2,
+                          "size_bytes":  766361,
+                          "sha256":  "c2dd962d8a381018f5d3ba7dbc3bb24b126d66d1a77a5e7efbf1dfa6fb8149b9"
+                      },
+                      {
+                          "filename":  "aurelia-ev-v1.1-fix.apk",
+                          "version_name":  "1.1.1-fix",
+                          "version_code":  3,
+                          "size_bytes":  766359,
+                          "sha256":  "6dff33b5dbb1147a6ac93c66bc789bf1ce362eea5f21a26e82ce1d4e1ed3032f"
+                      },
+                      {
+                          "filename":  "aurelia-rearview-v1.0.apk",
+                          "version_name":  "1.0.0",
+                          "version_code":  1,
+                          "size_bytes":  754072,
+                          "sha256":  "37eb009f7304b8cf430feeb78676a8140cd0e83eb1713e2d6e7f73057e5fffd2"
+                      }
+                  ]
+}

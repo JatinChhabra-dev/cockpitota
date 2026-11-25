@@ -1,0 +1,24 @@
+scenario_id: "SC-04"
+name: "Remote climate"
+description: "Companion app sends set-temperature 21.0 C -> mock cloud -> cockpit UI reflects it."
+version: "1.0"
+duration_seconds: 15
+
+steps:
+  - t: 0.0
+    phase: "standby"
+    signal: "Vehicle.Cabin.HVAC.Station.Row1.Driver.Temperature"
+    value: 24.0 # Baseline ambient
+    description: "Cockpit initial temperature setting 24.0 C"
+
+  - t: 3.0
+    phase: "remote_command"
+    action: "COMPANION_REMOTE_CLIMATE"
+    value: 21.0
+    description: "Companion app transmits target climate 21.0 C via mock vehicle cloud"
+
+  - t: 5.0
+    phase: "hvac_sync"
+    signal: "Vehicle.Cabin.HVAC.Station.Row1.Driver.Temperature"
+    value: 21.0
+    description: "VHAL property updated, cockpit UI reflects 21.0 C"

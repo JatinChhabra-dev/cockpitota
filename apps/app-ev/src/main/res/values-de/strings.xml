@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aurelia EV</string>
+    <string name="header_title">Aurelia EV &amp; Fahrzeugsteuerung</string>
+    <string name="speed_unit">km/h</string>
+    <string name="charging_title">Ladezeitplan</string>
+    <string name="charging_title_v2">Intelligentes Laden (Nebentarif)</string>
+    <string name="btn_open_modal">Ladezeitplan konfigurieren</string>
+    <string name="nav_shortcut_v1">Ladestation suchen</string>
+    <string name="nav_shortcut_v2">Route zum Schnelllader</string>
+    <string name="hvac_label">Innenraumklima (Fahrer)</string>
+    <string name="ux_locked">Fahrbeschraenkungen aktiv — Eingaben waehrend der Fahrt gesperrt</string>
+    <string name="eu_consent">EU-Dateneinwilligung erforderlich (DSGVO-Telemetriehinweis)</string>
+    <string name="modal_title">Ladezeitplan-Konfiguration</string>
+    <string name="modal_close">Zeitplan schliessen</string>
+    <string name="disclaimer">Nachweis fuer SUMS-Pruefung vorbereitet. Keine Typgenehmigungsentscheidung.</string>
+</resources>

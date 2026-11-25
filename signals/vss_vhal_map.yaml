@@ -1,0 +1,100 @@
+# VSS 4.x to AOSP VHAL Signal Mapping Specification
+# Appendix A from Ferfier Cockpit & OTA Release Assurance POC Build Spec
+
+version: "1.0"
+battery_capacity_kwh: 75.0  # Used to convert SoC % to Wh for EV_BATTERY_LEVEL
+
+mappings:
+  Vehicle.Speed:
+    vhal_property_name: "PERF_VEHICLE_SPEED"
+    vhal_property_id: 291504647
+    hex_id: "0x11600207"
+    data_type: "float"
+    unit: "m/s"
+    used_in: ["SC-01", "OTA_precondition"]
+    conversion: "kmh_to_ms"  # value / 3.6
+
+  Vehicle.Powertrain.Transmission.SelectedGear:
+    vhal_property_name: "GEAR_SELECTION"
+    vhal_property_id: 289408000
+    hex_id: "0x11400a00"
+    data_type: "int"
+    unit: "enum"
+    enum_values:
+      GEAR_UNKNOWN: 0
+      GEAR_NEUTRAL: 1
+      GEAR_REVERSE: 2
+      GEAR_PARK: 4
+      GEAR_DRIVE: 8
+    used_in: ["SC-01", "SC-03", "OTA_precondition"]
+
+  Vehicle.Powertrain.Transmission.CurrentGear:
+    vhal_property_name: "CURRENT_GEAR"
+    vhal_property_id: 289408001
+    hex_id: "0x11400a01"
+    data_type: "int"
+    unit: "enum"
+    enum_values:
+      GEAR_UNKNOWN: 0
+      GEAR_NEUTRAL: 1
+      GEAR_REVERSE: 2
+      GEAR_PARK: 4
+      GEAR_DRIVE: 8
+    used_in: ["SC-01"]
+
+  Vehicle.Chassis.ParkingBrake.IsEngaged:
+    vhal_property_name: "PARKING_BRAKE_ON"
+    vhal_property_id: 287310850
+    hex_id: "0x11200202"
+    data_type: "boolean"
+    unit: "bool"
+    used_in: ["SC-02", "OTA_precondition"]
+
+  Vehicle.LowVoltageSystemState:
+    vhal_property_name: "IGNITION_STATE"
+    vhal_property_id: 289408009
+    hex_id: "0x11400a09"
+    data_type: "int"
+    unit: "enum"
+    enum_values:
+      "UNDEFINED": 0
+      "LOCK": 1
+      "OFF": 2
+      "ACC": 3
+      "ON": 4
+      "START": 5
+    used_in: ["SC-01"]
+
+  Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed:
+    vhal_property_name: "EV_BATTERY_LEVEL"
+    vhal_property_id: 291504905
+    hex_id: "0x11600309"
+    data_type: "float"
+    unit: "Wh"
+    conversion: "soc_percent_to_wh"  # (soc / 100.0) * (battery_capacity_kwh * 1000.0)
+    used_in: ["SC-02", "SC-05", "OTA_precondition"]
+
+  Vehicle.Powertrain.TractionBattery.Charging.ChargePortFlap:
+    vhal_property_name: "EV_CHARGE_PORT_OPEN"
+    vhal_property_id: 287310602
+    hex_id: "0x1120010a"
+    data_type: "boolean"
+    unit: "bool"
+    used_in: ["SC-02"]
+
+  Vehicle.Powertrain.TractionBattery.Charging.IsChargingCableConnected:
+    vhal_property_name: "EV_CHARGE_PORT_CONNECTED"
+    vhal_property_id: 287310603
+    hex_id: "0x1120010b"
+    data_type: "boolean"
+    unit: "bool"
+    used_in: ["SC-02"]
+
+  Vehicle.Cabin.HVAC.Station.Row1.Driver.Temperature:
+    vhal_property_name: "HVAC_TEMPERATURE_SET"
+    vhal_property_id: 358614275
+    hex_id: "0x15600503"
+    data_type: "float"
+    unit: "celsius"
+    area_id: 1  # Row 1 Driver
+    used_in: ["SC-04"]

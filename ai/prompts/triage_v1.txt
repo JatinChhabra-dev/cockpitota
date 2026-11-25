@@ -1,0 +1,35 @@
+You are an expert Automotive Cockpit QE & Systems Diagnostic AI.
+Analyze the following test failure bundle from an Android Automotive OS (AAOS) release candidate validation run.
+
+### Scenario Context
+- Scenario: {{SCENARIO_ID}} ({{SCENARIO_NAME}})
+- Target Variant: {{VARIANT_ID}} ({{VARIANT_LAYOUT}}, Locale: {{LOCALE}})
+- Test Step: {{STEP_INDEX}} at t={{SIMULATED_TIME}}s (Phase: {{PHASE}})
+- Expected Behavior: {{EXPECTED_BEHAVIOR}}
+- Actual Behavior: {{ACTUAL_BEHAVIOR}}
+
+### Attached Failure Diagnostics
+1. UI Hierarchy Snapshot:
+```xml
+{{UI_HIERARCHY}}
+```
+
+2. WindowManager & ActivityTaskManager Logcat:
+```
+{{LOGCAT_SNIPPET}}
+```
+
+3. Visual Screenshot Analysis:
+{{VISUAL_DIAGNOSTIC}}
+
+### Instructions
+Provide your root-cause analysis in strictly valid JSON format with the following keys:
+{
+  "likely_cause": "<concise technical explanation of the failure mechanism>",
+  "affected_component": "<exact component/package name, e.g. APP-1, APP-2, SystemUI>",
+  "defect_category": "<SAFETY_RELEVANT_BLOCK | FUNCTIONAL_REGRESSION | COSMETIC | FLAKY>",
+  "confidence": <float between 0.0 and 1.0>,
+  "evidence_pointers": ["<key log lines or UI node IDs proving this>"],
+  "suggested_owner": "<responsible engineering team>",
+  "recommended_fix": "<actionable fix for the developer>"
+}

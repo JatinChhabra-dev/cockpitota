@@ -1,0 +1,29 @@
+scenario_id: "SC-03"
+name: "Reverse with menu open"
+description: "Parked, charging menu opened in APP-1 -> gear R -> hold 5s -> gear P. Proves rear-view stand-in always on top within 500ms."
+version: "1.0"
+duration_seconds: 15
+
+steps:
+  - t: 0.0
+    phase: "initial_park"
+    signal: "Vehicle.Powertrain.Transmission.SelectedGear"
+    value: "GEAR_PARK"
+    description: "Start in Park"
+
+  - t: 2.0
+    phase: "ui_interaction"
+    action: "OPEN_CHARGING_MODAL" # Triggered by test runner on APP-1
+    description: "Driver opens charging schedule modal on cockpit display"
+
+  - t: 4.0
+    phase: "shift_reverse"
+    signal: "Vehicle.Powertrain.Transmission.SelectedGear"
+    value: "GEAR_REVERSE"
+    description: "Driver shifts to Reverse. Safety requirement: Rear-view stand-in MUST appear on top within 500ms"
+
+  - t: 10.0
+    phase: "reversing_complete"
+    signal: "Vehicle.Powertrain.Transmission.SelectedGear"
+    value: "GEAR_PARK"
+    description: "Shift back to Park"

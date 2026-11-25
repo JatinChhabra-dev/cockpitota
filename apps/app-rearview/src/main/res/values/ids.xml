@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="rearview_root" />
+    <item type="id" name="txt_rearview_banner" />
+    <item type="id" name="txt_rearview_latency" />
+    <item type="id" name="txt_rearview_warning" />
+</resources>

@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # ========================================================
+  # Evidence Store (Postgres 16) - M5 & M7
+  # ========================================================
+  evidence-db:
+    image: postgres:16-alpine
+    container_name: cora-evidence-db
+    environment:
+      POSTGRES_DB: cora_evidence
+      POSTGRES_USER: cora_user
+      POSTGRES_PASSWORD: cora_secure_password_2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cora_user -d cora_evidence"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ========================================================
+  # Eclipse hawkBit 1.0 (OTA Rollout Backend) - M4
+  # ========================================================
+  hawkbit:
+    image: hawkbit/hawkbit-update-server:latest
+    container_name: cora-hawkbit-server
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://evidence-db:5432/cora_evidence
+      SPRING_DATASOURCE_USERNAME: cora_user
+      SPRING_DATASOURCE_PASSWORD: cora_secure_password_2026
+      # Enable test authentication (admin/admin)
+      HAWKBIT_SERVER_SECURITY_AUTHENTICATION_USER_PASSWORD: "{noop}admin"
+    ports:
+      - "8080:8080"
+    depends_on:
+      evidence-db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

@@ -1,0 +1,51 @@
+# Aurelia Motors Cockpit Release Notes — Machine-Readable Contract (Spec §4 M3-FR3, §5)
+# Consumed by M5 Equivalence Differ and M6 AI Test Generator
+
+release_id: "v1.1"
+baseline_release_id: "v1.0"
+oem_brand: "Aurelia Motors"
+target_platform: "AAOS API 33/34"
+created_at: "2026-11-23T00:00:00Z"
+
+app_versions:
+  - package: "com.aurelia.ev"
+    name: "APP-1 Aurelia EV & Vehicle"
+    version_name: "1.1.0"
+    version_code: 2
+  - package: "com.aurelia.rearview"
+    name: "APP-2 Rear-view Stand-in"
+    version_name: "1.0.0"
+    version_code: 1
+
+declared_changes:
+  - change_id: "CHG-101"
+    component: "APP-1"
+    description: "New charging-schedule card with off-peak smart scheduling summary"
+    ui_ids:
+      - "com.aurelia.ev:id/card_charging_schedule_v2"
+      - "com.aurelia.ev:id/btn_open_charging_modal"
+    approval_relevant: false
+    variants: ["VAR-A", "VAR-B", "VAR-C"]
+
+  - change_id: "CHG-102"
+    component: "APP-1"
+    description: "Revised navigation shortcut to Route to Nearest Fast Charger"
+    ui_ids:
+      - "com.aurelia.ev:id/btn_nav_shortcut_v2"
+    approval_relevant: false
+    variants: ["VAR-A", "VAR-B", "VAR-C"]
+
+  - change_id: "CHG-103"
+    component: "APP-1"
+    description: "Updated German (de-DE) localization strings for charging schedule and cabin climate"
+    ui_ids:
+      - "com.aurelia.ev:id/txt_header_title"
+      - "com.aurelia.ev:id/txt_charging_title"
+      - "com.aurelia.ev:id/txt_hvac_label"
+    approval_relevant: false
+    variants: ["VAR-C"]
+
+notes_summary: >
+  Release v1.1 introduces the refreshed off-peak charging schedule card, a revised
+  fast-charger navigation shortcut, and updated German (de-DE) localization strings.
+  No changes were declared to safety-relevant rear-view camera overlay behaviour (APP-2).

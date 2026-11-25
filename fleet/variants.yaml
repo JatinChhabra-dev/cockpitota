@@ -1,0 +1,59 @@
+# Fleet Variant Definitions
+# Each variant maps to a named AVD profile + property overrides
+# Local phase: uses android AVD; Cloud phase: uses Cuttlefish with same configs
+
+variants:
+
+  VAR-A:
+    id: "VAR-A"
+    name: "Landscape Centre Display — US English"
+    avd_name: "AAOS-VAR-A"
+    display:
+      width: 1920
+      height: 1080
+      orientation: landscape
+      density: 160
+    locale: "en-US"
+    feature_flags:
+      EV_CHARGE_SCHEDULE: "on"
+      EU_DATA_CONSENT_PROMPT: "off"
+    system_props:
+      ro.product.locale: "en-US"
+      persist.sys.locale: "en-US"
+    description: "Primary US market variant — landscape infotainment panel"
+
+  VAR-B:
+    id: "VAR-B"
+    name: "Portrait Centre Display — US English"
+    avd_name: "AAOS-VAR-B"
+    display:
+      width: 1080
+      height: 1920
+      orientation: portrait
+      density: 160
+    locale: "en-US"
+    feature_flags:
+      EV_CHARGE_SCHEDULE: "on"
+      EU_DATA_CONSENT_PROMPT: "off"
+    system_props:
+      ro.product.locale: "en-US"
+      persist.sys.locale: "en-US"
+    description: "Portrait display variant — exposes planted defect in SC-03"
+
+  VAR-C:
+    id: "VAR-C"
+    name: "Landscape Centre Display — German / EU"
+    avd_name: "AAOS-VAR-C"
+    display:
+      width: 1920
+      height: 1080
+      orientation: landscape
+      density: 160
+    locale: "de-DE"
+    feature_flags:
+      EV_CHARGE_SCHEDULE: "on"
+      EU_DATA_CONSENT_PROMPT: "on"
+    system_props:
+      ro.product.locale: "de-DE"
+      persist.sys.locale: "de-DE"
+    description: "German / EU market variant — localisation & data consent checks"

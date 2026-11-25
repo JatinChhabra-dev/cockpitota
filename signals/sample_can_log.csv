@@ -1,0 +1,12 @@
+timestamp,signal,value
+0.0,GearPosition,GEAR_PARK
+1.5,ParkingBrakeState,engaged
+2.0,BatterySOC,65.0
+4.0,ParkingBrakeState,disengaged
+5.0,GearPosition,GEAR_DRIVE
+6.0,VehicleSpeed,12.5
+9.0,VehicleSpeed,35.0
+15.0,VehicleSpeed,50.0
+20.0,VehicleSpeed,0.0
+22.0,GearPosition,GEAR_PARK
+23.0,ParkingBrakeState,engaged

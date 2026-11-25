@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="txt_header_title" />
+    <item type="id" name="txt_version_badge" />
+    <item type="id" name="txt_powertrain_badge" />
+    <item type="id" name="banner_ux_restricted" />
+    <item type="id" name="banner_eu_consent" />
+    <item type="id" name="txt_speed_value" />
+    <item type="id" name="txt_speed_mph" />
+    <item type="id" name="txt_gear_value" />
+    <item type="id" name="txt_soc_value" />
+    <item type="id" name="txt_soc_wh" />
+    <item type="id" name="progress_battery" />
+    <item type="id" name="txt_charge_port_status" />
+    <item type="id" name="txt_charge_cable_status" />
+    <item type="id" name="txt_hvac_label" />
+    <item type="id" name="txt_hvac_temp" />
+    <item type="id" name="card_charging_schedule_v1" />
+    <item type="id" name="card_charging_schedule_v2" />
+    <item type="id" name="txt_charging_title" />
+    <item type="id" name="btn_open_charging_modal" />
+    <item type="id" name="btn_nav_shortcut_v1" />
+    <item type="id" name="btn_nav_shortcut_v2" />
+    <item type="id" name="input_charge_note" />
+    <item type="id" name="modal_charging_schedule" />
+    <item type="id" name="btn_close_charging_modal" />
+    <item type="id" name="txt_disclaimer" />
+</resources>

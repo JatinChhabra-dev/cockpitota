@@ -1,0 +1,54 @@
+scenario_id: "SC-02"
+name: "Park and charge"
+description: "Gear P, brake on -> charge port open -> connected -> SoC 40->80%. Proves EV app shows charging state & schedule."
+version: "1.0"
+duration_seconds: 30
+
+steps:
+  - t: 0.0
+    phase: "park"
+    signal: "Vehicle.Powertrain.Transmission.SelectedGear"
+    value: "GEAR_PARK"
+    description: "Ensure vehicle is parked"
+
+  - t: 2.0
+    phase: "brake"
+    signal: "Vehicle.Chassis.ParkingBrake.IsEngaged"
+    value: true
+    description: "Parking brake engaged"
+
+  - t: 4.0
+    phase: "initial_soc"
+    signal: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed"
+    value: 40.0 # 40%
+    description: "Initial battery state of charge 40%"
+
+  - t: 8.0
+    phase: "open_flap"
+    signal: "Vehicle.Powertrain.TractionBattery.Charging.ChargePortFlap"
+    value: true
+    description: "Open charge port flap"
+
+  - t: 12.0
+    phase: "connect_cable"
+    signal: "Vehicle.Powertrain.TractionBattery.Charging.IsChargingCableConnected"
+    value: true
+    description: "Connect charging cable"
+
+  - t: 18.0
+    phase: "charging_55"
+    signal: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed"
+    value: 55.0
+    description: "Charging progressing: 55%"
+
+  - t: 24.0
+    phase: "charging_70"
+    signal: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed"
+    value: 70.0
+    description: "Charging progressing: 70%"
+
+  - t: 30.0
+    phase: "charging_80"
+    signal: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed"
+    value: 80.0
+    description: "Target charge level 80% reached"

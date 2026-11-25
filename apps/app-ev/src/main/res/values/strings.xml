@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aurelia EV</string>
+    <string name="header_title">Aurelia EV &amp; Vehicle Control</string>
+    <string name="speed_unit">km/h</string>
+    <string name="charging_title">Charging Schedule</string>
+    <string name="charging_title_v2">Smart Off-Peak Charging</string>
+    <string name="btn_open_modal">Configure Charging Schedule</string>
+    <string name="nav_shortcut_v1">Find Charging Station</string>
+    <string name="nav_shortcut_v2">Route to Fast Charger</string>
+    <string name="hvac_label">Cabin Climate (Driver)</string>
+    <string name="ux_locked">Driving Restrictions Active — Keyboard &amp; schedule edits locked</string>
+    <string name="eu_consent">EU Data Consent Required (GDPR Telemetry Notice)</string>
+    <string name="modal_title">Charging Schedule Configuration</string>
+    <string name="modal_close">Close Schedule</string>
+    <string name="disclaimer">Evidence prepared for SUMS review. Not a type-approval or certification decision.</string>
+</resources>
