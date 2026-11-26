@@ -33,6 +33,9 @@ from fleet.stream import get_stream_url, start_stream, stop_stream, capture_scre
 from signals.router import router as scenarios_router
 from apps.companion.router import router as companion_cloud_router
 from ota.router import router as ota_router
+from engine.router import router as engine_router
+from ai.router import router as ai_router
+from dossier.router import router as dossier_router
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -59,6 +62,9 @@ app.add_middleware(
 app.include_router(scenarios_router)
 app.include_router(companion_cloud_router)
 app.include_router(ota_router)
+app.include_router(engine_router)
+app.include_router(ai_router)
+app.include_router(dossier_router)
 
 # In-memory instance registry (replace with DB in M7 integration)
 _instances: Dict[str, FleetInstance] = {}

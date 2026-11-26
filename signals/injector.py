@@ -189,6 +189,6 @@ class VhalInjector:
         res2 = self.inject_vss("Vehicle.Powertrain.TractionBattery.Charging.IsChargingCableConnected", cable_connected)
         return [res1, res2]
 
-    def set_hvac_temperature(self, temp_celsius: float, row: int = 1) -> Dict[str, Any]:
-        """Sets cabin HVAC temperature setpoint."""
+    def set_hvac_temperature(self, temp_celsius: float, row: int = 49) -> Dict[str, Any]:
+        """Sets cabin HVAC temperature setpoint (default area_id=49 for AOSP Driver HVAC zone)."""
         return self.inject_vss("Vehicle.Cabin.HVAC.Station.Row1.Driver.Temperature", temp_celsius, area_id=row)

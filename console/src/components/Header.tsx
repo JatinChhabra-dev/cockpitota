@@ -4,8 +4,8 @@ import { Activity, ShieldCheck, Cpu } from 'lucide-react';
 interface HeaderProps {
   backendOnline: boolean;
   activeCount: number;
-  activeTab: 'fleet' | 'signals' | 'scenarios' | 'ota';
-  setActiveTab: (tab: 'fleet' | 'signals' | 'scenarios' | 'ota') => void;
+  activeTab: 'fleet' | 'signals' | 'scenarios' | 'ota' | 'equivalence' | 'ai' | 'dossier';
+  setActiveTab: (tab: 'fleet' | 'signals' | 'scenarios' | 'ota' | 'equivalence' | 'ai' | 'dossier') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -84,6 +84,36 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             OTA &amp; Ledger (M4)
+          </button>
+          <button
+            onClick={() => setActiveTab('equivalence')}
+            className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              activeTab === 'equivalence'
+                ? 'bg-[#2E74C9] text-white shadow-md shadow-blue-600/30'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            Equivalence &amp; Gate (M5)
+          </button>
+          <button
+            onClick={() => setActiveTab('ai')}
+            className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              activeTab === 'ai'
+                ? 'bg-[#2E74C9] text-white shadow-md shadow-blue-600/30'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            AI Review (M6)
+          </button>
+          <button
+            onClick={() => setActiveTab('dossier')}
+            className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+              activeTab === 'dossier'
+                ? 'bg-[#2E74C9] text-white shadow-md shadow-blue-600/30'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            R156 Dossier (M7)
           </button>
         </nav>
 

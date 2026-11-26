@@ -51,7 +51,16 @@ def send_remote_climate(instance_id: str, req: RemoteClimateRequest):
         raise HTTPException(status_code=409, detail=f"Vehicle instance '{instance_id}' is not ONLINE")
 
     injector = _get_injector(inst.adb_serial)
-    vhal_res = injector.set_hvac_temperature(req.temperature_c, row=1)
+    vhal_res = injector.set_hvac_temperature(req.temperature_c, row=49)
+    try:
+        injector._exec_adb([
+            "shell", "am", "broadcast",
+            "-a", "com.aurelia.ev.ACTION_REMOTE_CLIMATE",
+            "--ef", "temperature_c", str(req.temperature_c),
+            "-n", "com.aurelia.ev/.RemoteCommandReceiver",
+        ])
+    except Exception:
+        pass
 
     record = {
         "command_id": f"cmd-{int(datetime.utcnow().timestamp() * 1000)}",

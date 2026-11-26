@@ -1,0 +1,30 @@
+# CORA Software Component Register (Spec §4 M5-FR7, §5 Data Model)
+# Used by the Release Gate to compute RXSWIN-impact (UNECE R156 approval relevance)
+
+components:
+  APP-1:
+    component_id: "APP-1"
+    package: "com.aurelia.ev"
+    name: "Aurelia EV & Vehicle Control"
+    owner: "Cockpit HMI Team"
+    approval_relevant: false
+    rxswin_ref: "RXSWIN-AURELIA-HMI-001"
+    description: "EV battery, charging schedule, climate, and UX-restricted vehicle controls"
+
+  APP-2:
+    component_id: "APP-2"
+    package: "com.aurelia.rearview"
+    name: "Rear-view Camera Stand-in"
+    owner: "ADAS & Safety Display Team"
+    approval_relevant: true
+    rxswin_ref: "RXSWIN-AURELIA-RVC-158"
+    description: "Safety-relevant reversing display (FMVSS 111 / UNECE R158 class; <500ms z-order top)"
+
+  APP-3:
+    component_id: "APP-3"
+    package: "com.aurelia.companion"
+    name: "Companion Phone & Mock Cloud"
+    owner: "Connected Vehicle Team"
+    approval_relevant: false
+    rxswin_ref: "RXSWIN-AURELIA-CONN-003"
+    description: "Remote climate and off-peak charging schedule companion relay"

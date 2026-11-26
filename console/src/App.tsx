@@ -4,10 +4,13 @@ import { FleetTab } from './components/FleetTab';
 import { SignalsTab } from './components/SignalsTab';
 import { ScenariosTab } from './components/ScenariosTab';
 import { OtaTab } from './components/OtaTab';
+import { EquivalenceTab } from './components/EquivalenceTab';
+import { AiReviewTab } from './components/AiReviewTab';
+import { DossierTab } from './components/DossierTab';
 import { VariantConfig, FleetInstance, ScenarioMeta, api } from './api';
 
 export const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'fleet' | 'signals' | 'scenarios' | 'ota'>('fleet');
+  const [activeTab, setActiveTab] = useState<'fleet' | 'signals' | 'scenarios' | 'ota' | 'equivalence' | 'ai' | 'dossier'>('fleet');
   const [backendOnline, setBackendOnline] = useState<boolean>(false);
   const [variants, setVariants] = useState<Record<string, VariantConfig>>({});
   const [instances, setInstances] = useState<FleetInstance[]>([]);
@@ -99,6 +102,12 @@ export const App: React.FC = () => {
         )}
 
         {activeTab === 'ota' && <OtaTab />}
+
+        {activeTab === 'equivalence' && <EquivalenceTab instances={instances} />}
+
+        {activeTab === 'ai' && <AiReviewTab />}
+
+        {activeTab === 'dossier' && <DossierTab />}
       </main>
 
       {/* Footer */}

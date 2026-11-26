@@ -96,5 +96,5 @@ mappings:
     hex_id: "0x15600503"
     data_type: "float"
     unit: "celsius"
-    area_id: 1  # Row 1 Driver
+    area_id: 49  # AOSP Emulator Driver HVAC Zone (SEAT_ROW_1_LEFT | ROW_2_LEFT | ROW_2_CENTER = 0x31)
     used_in: ["SC-04"]
